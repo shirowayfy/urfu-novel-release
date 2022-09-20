@@ -8,7 +8,8 @@ define e = Character('Эйлин', color="#c8ffc8")
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
-# Игра начинается здесь:
+define audio.maintheme = "audio/MainTheme.mp3"
+
 label start:
 
     scene bg room
