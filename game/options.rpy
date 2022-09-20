@@ -12,7 +12,7 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("novel")
+define config.name = _("project osel")
 
 
 ## Определяет, показывать ли заголовок, данный выше, на экране главного меню.
@@ -64,6 +64,7 @@ define config.has_voice = True
 
 define config.main_menu_music = "audio/MainTheme.mp3"
 
+define config.default_music_volume = 0.35
 
 ## Переходы ####################################################################
 ##
