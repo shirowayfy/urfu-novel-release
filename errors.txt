@@ -1,0 +1,13 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/gui.rpy", line 21: invalid syntax
+    {\
+        "menu_font": "fonts/tangak.ttf"\
+                  ^
+        "text_font": "fonts/Caveat-VariableFont_wght.ttf"\
+    
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Wed Sep 21 00:28:11 2022

@@ -16,7 +16,10 @@ init python:
 ################################################################################
 ## Конфигурируемые Переменные GUI
 ################################################################################
-
+define gui.fonts = {
+    "menu_font": "fonts/tangak.ttf",
+    "text_font": "fonts/Caveat-VariableFont_wght.ttf",
+}
 
 ## Цвета #######################################################################
 ##
@@ -56,16 +59,16 @@ define gui.interface_text_color = '#ffffff'
 ## Шрифты и их размеры #########################################################
 
 ## Шрифт, используемый внутриигровым текстом.
-define gui.text_font = "fonts/Raleway-Bold.ttf"
+define gui.text_font = gui.fonts["text_font"]
 
 ## Шрифт, используемый именами персонажей.
-define gui.name_text_font = "fonts/Raleway-Bold.ttf"
+define gui.name_text_font = gui.fonts["text_font"]
 
 ## Шрифт, используемый текстом вне игры.
-define gui.interface_text_font = "fonts/tangak.ttf"
+define gui.interface_text_font = gui.fonts["menu_font"]
 
 ## Размер нормального текста диалога.
-define gui.text_size = 33
+define gui.text_size = 45
 
 ## Размер имён персонажей.
 define gui.name_text_size = 45
