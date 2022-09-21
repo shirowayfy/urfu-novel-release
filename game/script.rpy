@@ -16,7 +16,7 @@ label main_menu:
 label start:
 
     scene scene1
-    play music audio.starttheme
+    stop music fadeout 1
 
     o "Обычным летним вечером Осёл как обычно играл в Доту"
     "Как вдруг он услышал звонок в дискорде... Это был ШРЕК"
