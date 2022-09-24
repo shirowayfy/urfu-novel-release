@@ -64,6 +64,10 @@ define config.has_voice = True
 
 define config.main_menu_music = "audio/MainTheme.mp3"
 
+#define config.music = {
+#    "menu music": "audio/MainTheme.mp3"
+#}
+
 define config.default_music_volume = 0.35
 
 ## Переходы ####################################################################
