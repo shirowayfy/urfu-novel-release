@@ -8,13 +8,12 @@ init offset = -999
 
 # FONTS
 define vars.fonts.menu_font = "fonts/tangak.ttf"
-define vars.fonts.text_font = "fonts/Caveat-VariableFont_wght.ttf"
+define vars.fonts.text_font = "fonts/Raleway-Bold.ttf"
 
 # AUDIO
 
 
 
-# GAME 
+# GAME
 
 define vars.bg = "gui/elbrus.jpg"
-

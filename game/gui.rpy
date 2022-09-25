@@ -64,7 +64,7 @@ define gui.name_text_font = vars.fonts.text_font
 define gui.interface_text_font = vars.fonts.menu_font
 
 ## Размер нормального текста диалога.
-define gui.text_size = 45
+define gui.text_size = 35
 
 ## Размер имён персонажей.
 define gui.name_text_size = 45
