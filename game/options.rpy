@@ -62,7 +62,7 @@ define config.has_voice = True
 ## проигрываться в главном меню. Этот файл продолжит проигрываться во время
 ## игры, если не будет остановлен, или не начнёт проигрываться другой аудиофайл.
 
-define config.main_menu_music = "audio/MainTheme.mp3"
+define config.main_menu_music = vars.audio.soundtrack.main_theme
 
 #define config.music = {
 #    "menu music": "audio/MainTheme.mp3"

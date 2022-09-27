@@ -12,7 +12,7 @@ define vars.fonts.text_font = "fonts/Raleway-Bold.ttf"
 
 # AUDIO
 
-
+define vars.audio.soundtrack.main_theme = "audio/soundtracks/main_theme.mp3"
 
 # GAME
 
