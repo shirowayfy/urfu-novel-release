@@ -16,6 +16,7 @@ define audio.vibro_sound = "audio/sounds/vibro_sound.mp3"
 init -2:
     image gf_bg = Movie(play="images/scene.webm", size=(1920, 1080))
     image start_scene = "images/scenes/intro.jpg"
+    image scene_with_notification = "images/scenes/intro_with_notification.jpg"
 
 label main_menu:
     scene gf_bg
@@ -39,6 +40,8 @@ label start:
     main_character "Черт! Не понимаю. Как понять, кем я хочу быть? Чем я хочу заниматься? Что мне вообще может быть интересно?"
 
     play sound audio.vibro_sound
+    
+    scene scene_with_notification
     # play sound audio.donkeysound
 
     # 'Вы приняты на специальность "Прикладная информатика"'
