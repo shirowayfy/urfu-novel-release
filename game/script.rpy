@@ -15,6 +15,7 @@ define audio.vibro_sound = "audio/sounds/vibro_sound.mp3"
 
 init -2:
     image gf_bg = Movie(play="images/scene.webm", size=(1920, 1080))
+    image start_scene = "images/scenes/intro.jpg"
 
 label main_menu:
     scene gf_bg
@@ -22,7 +23,7 @@ label main_menu:
 
 label start:
 
-    scene startscene
+    scene start_scene
     stop music fadeout 1
 
     "Сергей закончил школу. Прошли 11 лет его жизни.Углубляясь в прошлое, его настигает меланхолия."
