@@ -58,7 +58,7 @@ define gui.interface_text_color = '#ffffff'
 define gui.text_font = vars.fonts.text_font
 
 ## Шрифт, используемый именами персонажей.
-define gui.name_text_font = vars.fonts.text_font
+define gui.name_text_font = vars.fonts.character_name_font
 
 ## Шрифт, используемый текстом вне игры.
 define gui.interface_text_font = vars.fonts.menu_font

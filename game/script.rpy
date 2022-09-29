@@ -13,7 +13,8 @@ define audio.pryanyasteps = "audio/PryanyaSteps.mp3"
 
 
 init -2:
-    image gf_bg = Movie(play="images/scene.webm", size=(1920, 1080))
+    image gf_bg = Movie(play="scene.webm", size=(1920, 1080))
+
 
 label main_menu:
     scene gf_bg
