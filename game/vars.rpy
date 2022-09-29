@@ -13,7 +13,7 @@ define vars.fonts.character_name_font = "fonts/Antario-Bold.ttf"
 
 # AUDIO
 
-
+define vars.audio.soundtrack.main_theme = "audio/soundtracks/Serega.mp3"
 
 # GAME
 

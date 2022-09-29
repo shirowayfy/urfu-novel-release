@@ -18,7 +18,7 @@ define config.name = _("PROJECT OSEL")
 ## Определяет, показывать ли заголовок, данный выше, на экране главного меню.
 ## Установите на False, чтобы спрятать заголовок.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## Версия игры.
@@ -62,7 +62,7 @@ define config.has_voice = True
 ## проигрываться в главном меню. Этот файл продолжит проигрываться во время
 ## игры, если не будет остановлен, или не начнёт проигрываться другой аудиофайл.
 
-define config.main_menu_music = "audio/MainTheme.mp3"
+define config.main_menu_music = vars.audio.soundtrack.main_theme
 
 #define config.music = {
 #    "menu music": "audio/MainTheme.mp3"
