@@ -9,23 +9,27 @@ define tips_character = Character('Гига-Пряня', color="#808080")
 # define audio.starttheme = "audio/SSDDSSD.mp3"
 define audio.call_sound = "audio/sounds/call_sound.mp3"
 define audio.vibro_sound = "audio/sounds/vibro_sound.mp3"
+define audio.not_berserk_theme = "audio/soundtracks/not_berserk_theme.mp3"
 # define audio.donkeysound = "audio/DonkeySound.mp3"
 # define audio.pryanyasteps = "audio/PryanyaSteps.mp3"
 
 
 init -2:
-    image gf_bg = Movie(play="images/scene.webm", size=(1920, 1080))
+    # image gf_bg = Movie(play="images/scene.webm", size=(1920, 1080))
+    image main_menu = "gui/main_menu.png"
     image start_scene = "images/scenes/intro.jpg"
     image scene_with_notification = "images/scenes/intro_with_notification.jpg"
 
 label main_menu:
-    scene gf_bg
+    scene main_menu
     jump main_menu_screen
 
 label start:
 
     scene start_scene
     stop music fadeout 1
+
+    play music audio.not_berserk_theme
 
     "Сергей закончил школу. Прошли 11 лет его жизни.Углубляясь в прошлое, его настигает меланхолия."
 
@@ -39,8 +43,10 @@ label start:
 
     main_character "Черт! Не понимаю. Как понять, кем я хочу быть? Чем я хочу заниматься? Что мне вообще может быть интересно?"
 
+   
     play sound audio.vibro_sound
-    
+    stop music fadeout 4
+
     scene scene_with_notification
     # play sound audio.donkeysound
 
@@ -56,6 +62,7 @@ label start:
 
     main_character "Это что же это, придется съехать от родителей? А как получить общагу? Блин, там же наверняка будут тараканы. А кто будут соседями, надеюсь не феи и огры. Не люблю их. А как же мои вещи, как их перевезти."
 
+    
     play music audio.call_sound
 
     main_character "Голова болит. Минуту назад я размышлял о бытие, а сейчас уже думаю как перевезти вещи в общагу!"
