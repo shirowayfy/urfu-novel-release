@@ -5,7 +5,7 @@ define main_and_friend_character = Character('Сергей и Огр', color="#8
 define tips_character = Character('Гига-Пряня', color="#808080")
 
 
-# define audio.maintheme = vars.audio.soundtrack.main_theme
+define audio.maintheme = vars.audio.soundtrack.main_theme
 # define audio.starttheme = "audio/SSDDSSD.mp3"
 define audio.call_sound = "audio/sounds/call_sound.mp3"
 define audio.vibro_sound = "audio/sounds/vibro_sound.mp3"
@@ -26,7 +26,7 @@ label main_menu:
 
 label start:
 
-    scene start_scene
+    scene startscene
     stop music fadeout 1
 
     play music audio.not_berserk_theme
@@ -66,7 +66,7 @@ label start:
     play music audio.call_sound
 
     main_character "Голова болит. Минуту назад я размышлял о бытие, а сейчас уже думаю как перевезти вещи в общагу!"
-   
+
     stop music
 
     main_character "На аппарате?"
