@@ -382,11 +382,11 @@ style main_menu_text is gui_text
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
 
-style main_menu_frame:
-    xsize 420
-    yfill True
+# style main_menu_frame:
+#     xsize 420
+#     yfill True
 
-    background "gui/overlay/main_menu.png"
+#     background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -494,11 +494,11 @@ style game_menu_label_text is gui_label_text
 style return_button is navigation_button
 style return_button_text is navigation_button_text
 
-style game_menu_outer_frame:
-    bottom_padding 45
-    top_padding 180
+# style game_menu_outer_frame:
+#     bottom_padding 45
+#     top_padding 180
 
-    background "gui/overlay/game_menu.png"
+#     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
