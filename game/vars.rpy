@@ -18,3 +18,4 @@ define vars.audio.soundtrack.main_theme = "audio/soundtracks/Serega.mp3"
 # GAME
 
 define vars.bg = "gui/elbrus.jpg"
+define vars.university_name = "FuRA"
