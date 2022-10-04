@@ -14,16 +14,26 @@ define audio.donkeysound = "audio/DonkeySound.mp3"
 
 
 init -2:
-    image gf_bg = Movie(play="scene.webm", size=(1920, 1080))
+    # image gf_bg = Movie(play="scene.webm", size=(1920, 1080))
+    image main_menu: 
+        "images/menu/guts.jpg"
+        10
+        "images/menu/football_1.jpg"
+        10
+        "images/menu/girl.jpg"
+        10
+        repeat
+
+    image start_scene = "images/scenes/intro.jpg"
+    image scene_with_notification = "images/scenes/intro_with_notification.jpg"
 
 
 label main_menu:
-    scene gf_bg
+    scene main_menu
     jump main_menu_screen
 
 label start:
-
-    scene startscene
+    scene start_scene
     stop music fadeout 1
 
     "На часах почти полночь. Сквозь приоткрытое окно веет прохладный ветерок. Парень, только переступивший порог взрослой жизни, вяло качается на стуле."
@@ -46,7 +56,7 @@ label start:
 
     play sound audio.donkeysound
 
-    scene scene_with_phone
+    scene scene_with_notification
 
     main_character "УРА!!!"
 
