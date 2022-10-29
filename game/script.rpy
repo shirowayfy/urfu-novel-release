@@ -15,14 +15,14 @@ define audio.donkeysound = "audio/DonkeySound.mp3"
 
 init -2:
     # image gf_bg = Movie(play="scene.webm", size=(1920, 1080))
-    image main_menu: 
-        "images/menu/guts.jpg"
-        10
-        "images/menu/football_1.jpg"
-        10
-        "images/menu/girl.jpg"
-        10
-        repeat
+    image main_menu:
+        "images/menu/sketch_s_travoy.jpg"
+        #10
+        #"images/menu/football_1.jpg"
+        #10
+        #"images/menu/girl.jpg"
+        #10
+        #repeat
 
     image start_scene = "images/scenes/intro.jpg"
     image scene_with_notification = "images/scenes/intro_with_notification.jpg"
@@ -74,7 +74,7 @@ label start:
 
     stop music
 
-    show shrek at center
+    show s_ochkami at center
 
     friend_character "Ало, ало, меня слышно?"
 
