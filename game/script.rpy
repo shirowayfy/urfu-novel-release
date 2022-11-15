@@ -1,8 +1,9 @@
 ﻿
-define friend_character = Character('Огр', color="#c8ffc8")
-define main_character = Character('Сергей', color="#808080")
+define friend_character = Character('Огр', color="#c8ffc8", image="ogre")
+define main_character = Character('Сергей', color="#808080", image="donkey")
 define main_and_friend_character = Character('Сергей и Огр', color="#808080")
-define tips_character = Character('Гига-Пряня', color="#808080")
+define tips_character = Character('Гига-Пряня', color="#808080", image="cookie")
+
 
 
 define audio.maintheme = vars.audio.soundtrack.main_theme
@@ -24,8 +25,12 @@ init -2:
         #10
         #repeat
 
-    image start_scene = "images/scenes/intro.jpg"
-    image scene_with_notification = "images/scenes/intro_with_notification.jpg"
+    define scenes_path = "images/scenes"
+
+    image start_scene = scenes_path + "/intro.jpg"
+    image scene_with_notification = scenes_path + "/intro_with_notification.jpg"
+    image guk = scenes_path + "/guk.jpg"
+    image rtf = scenes_path + "/rtf.png"
 
 
 label main_menu:
@@ -74,33 +79,74 @@ label start:
 
     stop music
 
-    show s_ochkami at center
+    show ogre normal at right
 
     friend_character "Ало, ало, меня слышно?"
 
+    hide ogre normal
+
+    show donkey happy at left
+
     main_character "Нет, день добрый."
+
+    hide donkey happy
+
+    show ogre normal at right
 
     friend_character "Здарова мужик, ты это, поступил?"
 
+    hide ogre normal
+
+    show donkey happy at left
+
     main_character "Поступил? Ты тоже подавал в [vars.university_name]?"
+
+    hide donkey happy
+
+    show ogre normal at right
 
     friend_character "Да, ты забыл? Я же говорил об этом. Совсем там в облаках заплутал, даже этого не помнишь."
 
+    hide ogre normal
+
+    show donkey happy at left
+
     main_character "Вот так сюрприз!"
+
+    hide donkey happy
+
+    show ogre normal at right
 
     friend_character "Похоже будем соседями по общаге."
 
+    hide ogre normal
+
+    show donkey happy at left
+
     main_character "Ага, но не надо тащить с собой мешок лука, да и есть его в нашей комнате не стоит."
+
+    hide donkey happy
+
+    show ogre normal at right
 
     friend_character "Ну чего ты… Ладно, договорились!"
 
     friend_character "Не хочешь прогуляться, хоть глянем куда поступили?"
 
+    hide ogre normal
+
+    show donkey energized at left
+
     main_character "Давай, я и сам хотел предложить!"
 
+    hide donkey energized
 
     ############ Здесь должна подключаться сцена С ГУКом
+    
+    scene guk
 
+    show donkey outdoor at left
+    show ogre outdoor at right
 
     main_and_friend_character "Огоооо, монументально"
 
@@ -126,10 +172,15 @@ label start:
 
     main_character "Ок, давай спросим местного, может он нам подскажет где эта Мира 32."
 
+    hide donkey outdoor
+    hide ogre outdoor
 
     ######### Подключается сцена с гигапряней
 
+    show cookie
+
     # play sound audio.pryanyasteps fadein 1
+    show donkey outdoor at left
 
     main_character "День добрый, не подскажите, где тут находится ИРИТ-РТФ?"
 
@@ -143,6 +194,11 @@ label start:
     # stop sound fadeout 1
 
     ########## Подключается сцена у ИРИТа
+
+    scene rtf
+
+    show donkey outdoor at left
+    show ogre outdoor at right
 
     friend_character "Странный одноэтажный небоскреб."
 
