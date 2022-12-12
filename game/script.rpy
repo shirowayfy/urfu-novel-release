@@ -142,7 +142,7 @@ label start:
     hide donkey energized
 
     ############ Здесь должна подключаться сцена С ГУКом
-    
+
     scene guk
 
     show donkey outdoor at left
@@ -177,10 +177,9 @@ label start:
 
     ######### Подключается сцена с гигапряней
 
-    show cookie
+    show guk_s_pryaney
 
     # play sound audio.pryanyasteps fadein 1
-    show donkey outdoor at left
 
     main_character "День добрый, не подскажите, где тут находится ИРИТ-РТФ?"
 
