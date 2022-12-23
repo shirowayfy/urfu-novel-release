@@ -2,6 +2,9 @@
 define friend_character = Character('Огр', color="#c8ffc8", image="ogre")
 define main_character = Character('Сергей', color="#808080", image="donkey")
 define main_and_friend_character = Character('Сергей и Огр', color="#808080")
+define doril = Character('Дорил', image="doril")
+define humpty = Character('Дорил', image="humpty")
+define fiona = Character('Фиона', image="fiona")
 define tips_character = Character('Гига-Пряня', color="#808080", image="cookie")
 
 
@@ -31,6 +34,8 @@ init -2:
     image scene_with_notification = scenes_path + "/intro_with_notification.jpg"
     image guk = scenes_path + "/guk.jpg"
     image rtf = scenes_path + "/rtf.png"
+    image eng = scenes_path + "/eng.png"
+    image phys = scenes_path + "/phys.png"
 
 
 label main_menu:
@@ -194,7 +199,7 @@ label start:
 
     ########## Подключается сцена у ИРИТа
 
-    scene rtf
+    scene eng
 
     show donkey outdoor at left
     show ogre outdoor at right
