@@ -1,5 +1,4 @@
-﻿
-define friend_character = Character('Огр', color="#c8ffc8", image="ogre")
+﻿define friend_character = Character('Огр', color="#c8ffc8", image="ogre")
 define main_character = Character('Сергей', color="#808080", image="donkey")
 define main_and_friend_character = Character('Сергей и Огр', color="#808080")
 define doril = Character('Дорил', image="doril")
@@ -12,6 +11,10 @@ define rumpel = Character('Румпель-миддл-в-контуре', image="
 define tips_character = Character('Гига-Пряня', color="#808080", image="cookie")
 
 define answers = 0
+
+define bad_ending = 0
+define good_ending = 0
+define bro_ending = 0
 
 define audio.maintheme = vars.audio.soundtrack.main_theme
 # define audio.starttheme = "audio/SSDDSSD.mp3"
@@ -42,6 +45,126 @@ init -2:
     image phys = scenes_path + "/phys.png"
     image proga = scenes_path + "/proga.png"
 
+screen programming_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Румпель") action Hide("programming_panel")
+            textbutton _("кто-то") action Hide("programming_panel")
+            textbutton _("кто-то") action Hide("programming_panel")
+            textbutton _("кто-то") action Hide("programming_panel")
+            textbutton _("кто-то") action Hide("programming_panel")
+            textbutton _("Назад") action Hide("programming_panel")
+
+screen phys_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Волшебник") action Hide("phys_panel")
+            textbutton _("кто-то") action Hide("phys_panel")
+            textbutton _("кто-то") action Hide("phys_panel")
+            textbutton _("кто-то") action Hide("phys_panel")
+            textbutton _("кто-то") action Hide("phys_panel")
+            textbutton _("Назад") action Hide("phys_panel")
+
+screen math_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Математик") action Hide("math_panel")
+            textbutton _("кто-то") action Hide("math_panel")
+            textbutton _("кто-то") action Hide("math_panel")
+            textbutton _("кто-то") action Hide("math_panel")
+            textbutton _("кто-то") action Hide("math_panel")
+            textbutton _("Назад") action Hide("math_panel")
+
+screen history_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Историк") action Hide("history_panel")
+            textbutton _("кто-то") action Hide("history_panel")
+            textbutton _("кто-то") action Hide("history_panel")
+            textbutton _("кто-то") action Hide("history_panel")
+            textbutton _("кто-то") action Hide("history_panel")
+            textbutton _("Назад") action Hide("history_panel")
+
+screen eng_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Януш") action Hide("eng_panel")
+            textbutton _("кто-то") action Hide("eng_panel")
+            textbutton _("кто-то") action Hide("eng_panel")
+            textbutton _("кто-то") action Hide("eng_panel")
+            textbutton _("кто-то") action Hide("eng_panel")
+            textbutton _("Назад") action Hide("eng_panel")
+
+screen info_panel:
+    modal True
+    frame:
+        xalign 0.95
+        yalign 0.05
+        xsize 500
+        ysize 400
+
+        vbox:
+            text _("Выбор Предметов Модеус")
+            null height 15
+            textbutton _("Английский Язык") action Show("eng_panel")
+            textbutton _("Программирование") action Show("programming_panel")
+            textbutton _("Физика") action Show("phys_panel")
+            textbutton _("Математика") action Show("math_panel")
+            textbutton _("История") action Show("history_panel")
+            textbutton _("Выход") action Hide("info_panel")
+
+screen error_panel:
+    modal True
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1000
+        ysize 500
+
+        vbox:
+            text _("Извините, но при выборе предметов произошла ошибка системы(x00078), поэтому она автоматически распределила для вас преподавателей в случайном порядке")
+            null height 20
+            textbutton _("Закрыть") action Hide("error_panel")
 
 label main_menu:
     scene main_menu
@@ -219,6 +342,18 @@ label start:
 
     ######## Подключается сцена презентации выбора предметов и правил игры
 
+    scene start_scene
+
+    show screen info_panel
+
+    "Выберите преподавателей по своим предметам"
+
+    show screen error_panel
+
+    ""
+
+    scene rtf
+
     main_character "О, здарова, Олегофренд, чего опаздываешь? Я тебя тут уже как полчаса жду."
 
     friend_character "Ты только представь, дракон приземлился прямо на дилижанс и все движение встало, хорошо хоть трамваи ездили, но из-за какого-то кросса наций пришлось стоять по 3 минуты на каждом повороте. Дорога заняла целый час."
@@ -251,6 +386,8 @@ label start:
         main_character "Да, давай, не очень то и хотелось идти на физику."
 
         friend_character "Вот увидишь, ты не пожалеешь!"
+
+        $ bro_ending += 1
 
         jump second_day
 
@@ -294,6 +431,8 @@ label start:
 
             main_character "Ну нафиг, все равно ничего не знаю, пожалуй не стоит позориться у доски."
 
+            $ bad_ending += 1
+
             wizard "Неужели никто не хочет, что ж, тогда всем до следующего занятия начертить график механического движения прыгающей лягушки и описать ее движение!"
 
             jump second_day
@@ -301,6 +440,7 @@ label start:
         label try_to_solve:
 
             main_character "Что ж, давайте попробую"
+            $ good_ending += 1
 
             menu:
                 wizard "Сколько будет 2+2?"
@@ -330,6 +470,8 @@ label start:
                 wizard "А вы неплохо разбираетесь в механике, молодой человек. 5 очков Грифф.. Ой! Извините, что-то занесло, вспомнил молодость."
 
                 wizard "Садитесь, в вашу ведомость уже записан плюсик!"
+
+                $ phys_end += 1
 
             else:
 
@@ -375,6 +517,7 @@ label start:
         if answers >= 2:
             "Ваш уровень - B2"
             main_character "Вот что значит МБОУ СОШ Н99 имени Шрека с углубленным изучением англ. языка. Не зря учился 8 лет."
+            $ eng_end += 1
         else:
             "Ваш уровень - A1"
             main_character "Мда, но зато можно расслабится. Но все-же стоит подтянуть навыки перевода"
@@ -433,6 +576,8 @@ label start:
             main_character "Да, я бы мог попробовать"
 
             main_character "Задача непростая, но я вроде справился, я надеюсь."
+
+            $ prog_end += 1
 
             # звук вылета из дискорда
 
