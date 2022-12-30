@@ -249,14 +249,14 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Назад") action Rollback()
-            textbutton _("История") action ShowMenu('history')
-            textbutton _("Пропуск") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Авто") action Preference("auto-forward", "toggle")
-            textbutton _("Сохранить") action ShowMenu('save')
+            textbutton _("{icon=icon-skip-back} Back") action Rollback()
+            textbutton _("{icon=icon-compass} History") action ShowMenu('history')
+            textbutton _("{icon=icon-fast-forward} Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("{icon=icon-play-circle} Auto") action Preference("auto-forward", "toggle")
+            textbutton _("{icon=icon-save} Save") action ShowMenu('save')
             textbutton _("Б.Сохр") action QuickSave()
             textbutton _("Б.Загр") action QuickLoad()
-            textbutton _("Опции") action ShowMenu('preferences')
+            textbutton _("{icon=icon-settings} Prefs") action ShowMenu('preferences')
 
 
 ## Данный код гарантирует, что экран быстрого меню будет показан в игре в любое
@@ -297,17 +297,17 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Начать") action Start()
+            textbutton _("{icon=icon-feather} Start") action Start()
 
         else:
 
-            textbutton _("История") action ShowMenu("history")
+            textbutton _("{icon=icon-compass} History") action ShowMenu("history")
 
-            textbutton _("Сохранить") action ShowMenu("save")
+            textbutton _("{icon=icon-save} Save") action ShowMenu("save")
 
-        textbutton _("Загрузить") action ShowMenu("load")
+        textbutton _("{icon=icon-bookmark} Load") action ShowMenu("load")
 
-        textbutton _("Настройки") action ShowMenu("preferences")
+        textbutton _("{icon=icon-settings} Preferences") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -317,18 +317,18 @@ screen navigation():
 
             textbutton _("Главное меню") action MainMenu()
 
-        textbutton _("Об игре") action ShowMenu("about")
+        textbutton _("{icon=icon-info} About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
+            textbutton _("{icon=icon-help-circle} Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## Кнопка выхода блокирована в iOS и не нужна на Android и в веб-
             ## версии.
-            textbutton _("Выход") action Quit(confirm=not main_menu)
+            textbutton _("{icon=icon-x-circle} Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -347,6 +347,38 @@ style navigation_button_text:
 ## Используется, чтобы показать главное меню после запуска игры.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
+
+init python:
+
+    class TrackCursor(renpy.Displayable):
+
+        def __init__(self, child, paramod, **kwargs):
+
+            super(TrackCursor, self).__init__()
+
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+            self.paramod = paramod
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x, self.y))
+
+            return rv
+
+        def event (self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                self.x = -x /self.paramod
+                self.y = -y /self.paramod
+                renpy.redraw(self, 0)
 
 screen main_menu():
 

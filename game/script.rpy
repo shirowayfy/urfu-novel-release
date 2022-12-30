@@ -9,6 +9,7 @@ define wizard = Character('Физик-Волшебник', image="wizard")
 define fairy = Character('Фея-Англичанка', image="fairy")
 define rumpel = Character('Румпель-миддл-в-контуре', image="rumpel")
 define tips_character = Character('Гига-Пряня', color="#808080", image="cookie")
+define tamara = Character('Тамара', image="doril")
 
 define answers = 0
 
@@ -44,114 +45,7 @@ init -2:
     image eng = scenes_path + "/eng.png"
     image phys = scenes_path + "/phys.png"
     image proga = scenes_path + "/proga.png"
-
-screen programming_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Румпель") action Hide("programming_panel")
-            textbutton _("кто-то") action Hide("programming_panel")
-            textbutton _("кто-то") action Hide("programming_panel")
-            textbutton _("кто-то") action Hide("programming_panel")
-            textbutton _("кто-то") action Hide("programming_panel")
-            textbutton _("Назад") action Hide("programming_panel")
-
-screen phys_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Волшебник") action Hide("phys_panel")
-            textbutton _("кто-то") action Hide("phys_panel")
-            textbutton _("кто-то") action Hide("phys_panel")
-            textbutton _("кто-то") action Hide("phys_panel")
-            textbutton _("кто-то") action Hide("phys_panel")
-            textbutton _("Назад") action Hide("phys_panel")
-
-screen math_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Математик") action Hide("math_panel")
-            textbutton _("кто-то") action Hide("math_panel")
-            textbutton _("кто-то") action Hide("math_panel")
-            textbutton _("кто-то") action Hide("math_panel")
-            textbutton _("кто-то") action Hide("math_panel")
-            textbutton _("Назад") action Hide("math_panel")
-
-screen history_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Историк") action Hide("history_panel")
-            textbutton _("кто-то") action Hide("history_panel")
-            textbutton _("кто-то") action Hide("history_panel")
-            textbutton _("кто-то") action Hide("history_panel")
-            textbutton _("кто-то") action Hide("history_panel")
-            textbutton _("Назад") action Hide("history_panel")
-
-screen eng_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Януш") action Hide("eng_panel")
-            textbutton _("кто-то") action Hide("eng_panel")
-            textbutton _("кто-то") action Hide("eng_panel")
-            textbutton _("кто-то") action Hide("eng_panel")
-            textbutton _("кто-то") action Hide("eng_panel")
-            textbutton _("Назад") action Hide("eng_panel")
-
-screen info_panel:
-    modal True
-    frame:
-        xalign 0.95
-        yalign 0.05
-        xsize 500
-        ysize 400
-
-        vbox:
-            text _("Выбор Предметов Модеус")
-            null height 15
-            textbutton _("Английский Язык") action Show("eng_panel")
-            textbutton _("Программирование") action Show("programming_panel")
-            textbutton _("Физика") action Show("phys_panel")
-            textbutton _("Математика") action Show("math_panel")
-            textbutton _("История") action Show("history_panel")
-            textbutton _("Выход") action Hide("info_panel")
+    image brothers = scenes_path + "/brothers.png"
 
 screen error_panel:
     modal True
@@ -310,6 +204,7 @@ label start:
 
     ######### Подключается сцена с гигапряней
 
+
     show guk_s_pryaney
 
     # play sound audio.pryanyasteps fadein 1
@@ -327,7 +222,7 @@ label start:
 
     ########## Подключается сцена у ИРИТа
 
-    scene rtf
+    show rtf
 
     show donkey outdoor at left
     show ogre outdoor at right
@@ -344,15 +239,49 @@ label start:
 
     scene start_scene
 
-    show screen info_panel
+    scene rtf
 
-    "Выберите преподавателей по своим предметам"
+    show doril neytral1
+    tamara "Куда идем? Студенческий покажите!"
+
+    hide doril
+    show ogre outdoor at left
+
+    friend_character "Здравствуйте, так нету, еще не выдали."
+
+    friend_character "Пришли просто институт глянуть."
+
+    show doril zzlaya
+    hide ogre
+
+    tamara "Разглядывать дома у себя будете, а без студенческого не пущу!"
+    tamara "Приходите первого сентября, после выбора предметов, там и получите пропуски."
+    show start_scene with Fade(1.0, 1.0, 1.0)
+
+    fairy "Дорогие студенты 5 направления, ваше обучение будет построено по принципу ИОТ."
+    fairy "ИОТ позволяет самостоятельно конструировать собственный уникальный маршрут обучения в университете."
+    fairy "Система ИОТ ориентирована на индивидуализацию студента в учебном пространстве как по уровню сложности, так и по выбору дисциплин, что позволяет ему углубленно изучить выбранную траекторию и стать конкурентоспособнее на рынке труда."
+    fairy "Каждый семестр, на основе выбора студента (форма обучения, уровень сложности) формируются учебные команды. Здесь студент-айтишник может встретиться со студентами радиотехнических и инженерных направлений."
+    fairy "За 4 года в общеуниверситетском пространстве каждый обучающийся становится участником минимум 20 смешанных учебных команд"
+    fairy "Разве не чудесно?"
+    fairy "Выбор расписания и учителей состоится на платформе модеус через полчаса после трансляции."
+    fairy "Также хочу напомнить, что в будущем, вы будете делится на волны, которые будут выбирать свое расписание поочередно"
+    fairy "Зависеть это будет от вашей успеваемости."
+    fairy "Таким образом, отличники будут выбирать самые интересные предметы в самое удачное время, остальным же придется выбирать из остатков."
+    fairy "Ну да ладно, что там о втором семестре."
+    fairy "Сейчас вам всем предстоит выбрать предметы в одной волне."
+    fairy "Учитывая, сколько в этом году первокурсников, желаю вам удачных голодных игр!"
+
+    call screen expression_showcase_screen()
 
     show screen error_panel
 
-    ""
+    main_character "Чтож, я по крайней мере пытался"
 
-    scene rtf
+    scene rtf with Fade(1.0, 1.0, 1.0)
+
+    show donkey outdoor at left
+    show ogre outdoor at right
 
     main_character "О, здарова, Олегофренд, чего опаздываешь? Я тебя тут уже как полчаса жду."
 
@@ -471,8 +400,6 @@ label start:
 
                 wizard "Садитесь, в вашу ведомость уже записан плюсик!"
 
-                $ phys_end += 1
-
             else:
 
                 wizard "Молодой человек, учиться и учиться, но за смелость поощряю!"
@@ -485,14 +412,17 @@ label start:
     label second_day:
 
         hide wizard with dissolve
-        scene eng
+        scene eng with Fade(1.0, 1.0, 1.0)
 
         main_character "Да что ж это такое, два дня подряд к первой паре, не учеба, а издевательство какое-то!"
 
         main_character "Спасибо хоть английский, не самый сложный предмет. Можно расслабится. Это тебе не физика с *дедушкой-волшебником*, падающим с потолка"
 
+        show fiona normal
+
         fiona "Здравствуйте, к сожалению из-за рекордного количества студентов в этом году преподаватели не успели определить ваш текущий уровень английского, сегодня мы закроем этот просчет."
 
+        hide fiona
         show fairy happy
 
         menu:
@@ -516,17 +446,19 @@ label start:
 
         if answers >= 2:
             "Ваш уровень - B2"
+            $ good_ending += 1
             main_character "Вот что значит МБОУ СОШ Н99 имени Шрека с углубленным изучением англ. языка. Не зря учился 8 лет."
-            $ eng_end += 1
+
         else:
             "Ваш уровень - A1"
+            $ bro_ending += 1
             main_character "Мда, но зато можно расслабится. Но все-же стоит подтянуть навыки перевода"
 
         jump third_day
 
     label third_day:
 
-        scene proga
+        scene start_scene with Fade(1.0, 1.0, 1.0)
 
         main_character "До сих пор не верится, что пара по проге проходит в дискорде."
 
@@ -541,6 +473,9 @@ label start:
         main_character "что это блин было."
 
         main_character "ладно, пары похоже не будет, можно и в доту скатать."
+
+        scene bg_black with eyeclose
+        scene start_scene with eyeopen
 
         "** спустя 2 катки в доту **"
 
@@ -567,6 +502,7 @@ label start:
         label play_dota:
 
             main_character "Черт, тут такая потная катка, да ну пофиг на эти баллы, титанчик сам себя не апнет, а мне ещё в вп играть"
+            $ bad_ending += 1
 
             jump fourth_day
 
@@ -574,10 +510,9 @@ label start:
             # звук выхода из доты и звук заходы в дискорд
 
             main_character "Да, я бы мог попробовать"
+            $ good_ending += 1
 
             main_character "Задача непростая, но я вроде справился, я надеюсь."
-
-            $ prog_end += 1
 
             # звук вылета из дискорда
 
@@ -588,7 +523,7 @@ label start:
 
     label fourth_day:
 
-        scene eng
+        scene eng with Fade(1.0, 1.0, 1.0)
 
         if answers >= 2:
 
@@ -696,6 +631,11 @@ label start:
 
         humpty "Прежде чем начать, мне бы хотелось произнести небольшую речь, напутствие вам, первокурсникам, чтобы как-можно больше людей провели этот год с пользой."
 
+        scene bg_black with eyeclose
+        scene eng with eyeopen
+
+        show humpty normal
+
         humpty "Также не стоит забывать о безопасности в походах. Очень важно брать с собой в поход пару отпугивателей медведей, в экстремальной ситуации это может спасти вам жизнь."
 
         if answers < 2:
@@ -713,6 +653,9 @@ label start:
         humpty "В IX И XI ВЕКАХ"
 
         humpty "Что за удивительный факт! Неужели вас это не поражает?"
+
+        scene bg_black with eyeclose
+        scene eng with eyeopen
 
         humpty "Что-то я разговорился, всем спасибо за внимание, до следующей пары подготовьте конспект этой лекции."
 
@@ -754,3 +697,49 @@ label start:
             main_character "Он почти 40 минут говорил про все и, одновременно, ничего, про какие-то походы, правила поведения в транспорте и красоты южных морей."
 
             main_character "Провели время с пользой, ничего не сказать."
+
+        if bro_ending > good_ending and bro_ending > bad_ending:
+            jump bro_end
+        elif good_ending > bro_ending and good_ending > bad_ending:
+            jump good_end
+        elif bad_ending > good_ending and bad_ending > bro_ending:
+            jump bad_end
+
+    label bro_end:
+        scene brothers with Fade(1.0, 1.0, 1.0)
+        "Остаток года Олег и Сергей были неразлучны, но из-за постоянных тусовок с другом, Сергей не смог закрыть долги во втором семестре и вместе с ним отправился в свободное плавание."
+        main_character "Пейзаж навеивает воспоминания."
+        main_character "Ты так не думаешь, Олег?"
+        friend_character "Да, действительно, год был непростой, но нам с тобой определенно было весело."
+        main_character "С этим не поспоришь."
+        main_character "Что думаешь, есть мысли на дальнейшее будущее?"
+        friend_character "Знаешь Серега, моя голова пуста. Не в том плане, как обычно. Я не знаю."
+        main_character "Хорошо сказано. Я тоже не знаю."
+        friend_character "Мы вместе, а это главное, не пропадем."
+        friend_character "Главное двигаться вперед и не унывать."
+        main_character "Согласен братан!"
+        "Спустя 3 года, Олег и Сергей открыли перспективный стартап по разработке коммерческого софта для аэрокосмической отрасли. На пути к этому их ждало много неудач, но это многому их научило и все это время они были неразлучны, вдвоем выстоя все невзгоды."
+        return
+
+    label good_end:
+        "Весь год Сергей пахал не покладая копыт, многие студенты и преподаватели оценили его старания и в конце - концов он был выдвинут на звание “Студента года”"
+        main_character "И подумать не мог, что этот год обернется подобным образом."
+        main_character "Думаю, что и сам себе не поверил бы, встретив себя настоящего в прошлом."
+        main_character "Определенно, год был непростой, но он принес много новых знакомств, навыков, знаний."
+        main_character "В конце концов, главное, что я сам про себя могу сказать, что я достоин."
+        main_character "Жаль, что Олег не увидит номинацию."
+        main_character "Будет еще обиднее, что в случае моей победы, я не смогу услышать его типичную подколку над собой."
+        main_character "Хоть это меня и раздражало, но это было своего рода душевным."
+        main_character "Интересно что с ним, где он?"
+        main_character "Жаль, что из-за моего желания учиться наши пути разошлись."
+        cat "Серега, опять витаешь в облаках, иди на сцену, твоя очередь!"
+        "За свои заслуги, Сергей получил звание “Студент года”, к сожалению его лучший друг не увидел этого, но видимо этому не суждено было случится. Каждый пошел своей дорогой. В будущем Сергей устроился в “Индюкс” и построил блестящую карьеру. Про Олега же ничего больше не было слышно. Неизвестно, что с ним произошло в дальнейшем.. (Прим. автора:Намёк на сиквел?)"
+        return
+
+    label bad_end:
+        main_character "Пуш мид дебил!"
+        main_character "Господи да что вы творите!"
+        main_character "Почему у войда нет бфа на 10 минуте, вы издеваетесь?"
+        main_character "Да гори оно огнем, почему в каждой катке мне попадаются такие тиммейты!"
+        "Из-за неуспеваемости в учебе, Сергея отчислили из [vars.university_name], впоследствии он пару лет жил с родителями, проводя праздный образ жизни. Последующие пару лет, пока его сверстники строили карьеру и получали докторскую степень, Сергей апал ммр в надеже на то, что ему удастся стать киберкотлетой. К сожалению судьба была жестока. Поняв, что затея не удалась, Сергей устроился менеджером среднего звена, где его жизнь протекала неспешно и размеренно, в однообразной рутине, поглотившей его навсегда…."
+        return

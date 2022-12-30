@@ -10,6 +10,7 @@ init offset = -999
 define vars.fonts.menu_font = "fonts/tangak.ttf"
 define vars.fonts.text_font = "fonts/Antario-Regular.ttf"
 define vars.fonts.character_name_font = "fonts/Antario-Bold.ttf"
+define vars.fonts.icons_font = "fonts/icomoon/fonts/icomoon.ttf"
 
 # AUDIO
 
