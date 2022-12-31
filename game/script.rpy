@@ -22,6 +22,9 @@ define audio.maintheme = vars.audio.soundtrack.main_theme
 define audio.call_sound = "audio/sounds/call_sound.mp3"
 define audio.vibro_sound = "audio/sounds/vibro_sound.mp3"
 define audio.donkeysound = "audio/DonkeySound.mp3"
+define audio.discord_leave = "audio/sounds/disconnect.mp3"
+define audio.discord_join = "audio/sounds/user_join.mp3"
+define audio.unmute = "audio/sounds/unmute.mp3"
 # define audio.pryanyasteps = "audio/PryanyaSteps.mp3"
 
 
@@ -38,18 +41,22 @@ init -2:
 
     define scenes_path = "images/scenes"
 
-    image start_scene = scenes_path + "/intro.jpg"
-    image scene_with_notification = scenes_path + "/intro_with_notification.jpg"
+    image start_scene = scenes_path + "/start.png"
+    image scene_with_notification = scenes_path + "/notify.png"
     image guk = scenes_path + "/guk.jpg"
     image rtf = scenes_path + "/rtf.png"
     image eng = scenes_path + "/eng.png"
     image phys = scenes_path + "/phys.png"
     image proga = scenes_path + "/proga.png"
     image brothers = scenes_path + "/brothers.png"
+    image bad = scenes_path + "/bad.png"
+    image good = scenes_path + "/good.png"
+    image call_pic = scenes_path + "/call.png"
 
 screen error_panel:
     modal True
     frame:
+        padding(50,50,50,50)
         xalign 0.5
         yalign 0.5
         xsize 1000
@@ -101,6 +108,8 @@ label start:
     stop music
 
     play music audio.call_sound
+
+    scene call_pic
 
     main_character "На аппарате?"
 
@@ -237,8 +246,6 @@ label start:
 
     ######## Подключается сцена презентации выбора предметов и правил игры
 
-    scene start_scene
-
     scene rtf
 
     show doril neytral1
@@ -256,7 +263,7 @@ label start:
 
     tamara "Разглядывать дома у себя будете, а без студенческого не пущу!"
     tamara "Приходите первого сентября, после выбора предметов, там и получите пропуски."
-    show start_scene with Fade(1.0, 1.0, 1.0)
+    show iot with Fade(1.0, 1.0, 1.0)
 
     fairy "Дорогие студенты 5 направления, ваше обучение будет построено по принципу ИОТ."
     fairy "ИОТ позволяет самостоятельно конструировать собственный уникальный маршрут обучения в университете."
@@ -458,7 +465,7 @@ label start:
 
     label third_day:
 
-        scene start_scene with Fade(1.0, 1.0, 1.0)
+        scene proga with Fade(1.0, 1.0, 1.0)
 
         main_character "До сих пор не верится, что пара по проге проходит в дискорде."
 
@@ -475,7 +482,7 @@ label start:
         main_character "ладно, пары похоже не будет, можно и в доту скатать."
 
         scene bg_black with eyeclose
-        scene start_scene with eyeopen
+        scene proga with eyeopen
 
         "** спустя 2 катки в доту **"
 
@@ -507,13 +514,15 @@ label start:
             jump fourth_day
 
         label make_a_programm:
-            # звук выхода из доты и звук заходы в дискорд
+            play sound audio.unmute
 
             main_character "Да, я бы мог попробовать"
             $ good_ending += 1
+            play sound audio.discord_leave
 
             main_character "Задача непростая, но я вроде справился, я надеюсь."
 
+            play sound audio.discord_join
             # звук вылета из дискорда
 
             rumpel "Да господи, опять эта драная кошка, простите пожалуйста, ох уж эти соседские кошки в Тбилиси. Только переехал, никак не могу совладать с ними. За все сегодняшние неполадки вы получаете плюсик в ведомость, а теперь - свободны."
