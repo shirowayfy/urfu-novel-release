@@ -20,7 +20,7 @@ screen expression_showcase_screen():
 
                 vbox:
                     label "Английский язык"
-                    for exp in ['Януш', 'Волшебник', 'Румпель', 'Фея']:
+                    for exp in ['Чижевски А.С.', 'Вострецова О.А.', 'Мамаева Г.В.', 'Шарычева А.А.']:
                         textbutton exp:
                             action SetScreenVariable(
                                 name="sprite_brows",
@@ -29,7 +29,7 @@ screen expression_showcase_screen():
 
                 vbox:
                     label "Физика"
-                    for exp in ['Януш', 'Волшебник', 'Румпель', 'Фея']:
+                    for exp in ['Михалёва О.В.', 'Резник В.С.', 'Пушкарева А.С.', 'Плетнёва Е.В.']:
                         textbutton exp:
                             action SetScreenVariable(
                                 name='sprite_eyes',
@@ -38,7 +38,7 @@ screen expression_showcase_screen():
 
                 vbox:
                     label "Математика"
-                    for exp in ['Януш', 'Волшебник', 'Румпель', 'Фея']:
+                    for exp in ['Шестакова И.А.', 'Рыжкова И.В.', 'Борич А.А', 'Власова В.С.']:
                         textbutton exp:
                             action SetScreenVariable(
                                 name='sprite_mouth',
@@ -48,7 +48,7 @@ screen expression_showcase_screen():
                 vbox:
                     label "Программирование"
 
-                    for exp in ['Януш', 'Волшебник', 'Румпель', 'Фея']:
+                    for exp in ['Костромцов А.С.', 'Шалашова Т.Б.', 'Антоновская Н.В.', 'Лыкова Н.В.']:
                         textbutton exp:
                             action SetScreenVariable(
                                 name='',
@@ -57,7 +57,7 @@ screen expression_showcase_screen():
 
                 vbox:
                     label "История"
-                    for exp in ['Януш', 'Волшебник', 'Румпель', 'Фея']:
+                    for exp in ['Зиновьева Г.В.', 'Григоренко М.Г.', 'Воснецов А.В.', 'Смирнов С.Б.']:
                         textbutton exp:
                             action SetScreenVariable(
                                 name='sprite',
